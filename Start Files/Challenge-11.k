@@ -27,3 +27,53 @@ of the two center squares.
 There are many different algorithms you can use to solve this problem. The 
 interesting challenge is to come up with a strategy that works.
 */
+
+import "turns";
+
+function FindCenter(){
+	placeBeeper();
+	findWall();
+	placeBeeper();
+	findBeeper();
+	placeBeeper();
+	removeExtraBeepers();
+}
+
+function placeBeeper(){
+	move();
+	putBeeper();
+	move();
+}
+
+function findWall(){
+	while(frontIsClear()){
+		move();
+	}
+	turnAround();
+}
+
+function findBeeperFacingWest(){
+	while(noBeepersPresent()){
+		move();
+	}
+	turnAround();
+}
+
+function removeExtraBeepers(){
+	pickBeeper();
+	turnAround();
+	move();
+	move();
+	pickBeeper();
+	turnAround();
+	move();
+}
+
+
+
+
+
+
+
+
+
